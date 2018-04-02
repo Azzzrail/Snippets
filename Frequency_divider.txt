@@ -1,0 +1,14 @@
+
+ CLK_1H : process(clk, enable, reset)
+ begin
+   if reset = '1' then --or pre_counter2 > x"5F5E100"then
+      pre_counter2 <= (others=>'0');
+    elsif (clk='1' and clk'event) then
+      if enable = '1' then
+        pre_counter2 <= pre_counter2 + "1";
+        if pre_counter2 = x"5F5E100" then
+         output2 <= not output2;
+         pre_counter2 <= (others=>'0');
+       end if;
+     end if;
+    end if;

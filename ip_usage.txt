@@ -1,0 +1,20 @@
+use After architecture declaration 
+component clkip
+ port
+  (-- Clock in ports
+   -- Clock out ports
+   PLL_CLK          : out    std_logic;
+   clk_in1          : in     std_logic
+  );
+ end component;
+
+use After  begin
+IP_clock : clkip
+  port map (
+--IP_port_name => internal_own_code_sinal/out/in_name
+  -- Clock out ports
+  PLL_CLK => PLL_CLK_t,
+  -- Clock in ports
+  clk_in1 => clk
+);
+
